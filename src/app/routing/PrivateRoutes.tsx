@@ -38,14 +38,7 @@ const PrivateRoutes = () => {
                     path='file-manager/folders'
                     element={<Folders />}
                 />
-                <Route
-                    path='file-manager/*'
-                    element={
-                        <SuspensedView>
-                            <FileManagerWrapper />
-                        </SuspensedView>
-                    }
-                />
+                
                 <Route
                     path='crafted/pages/profile/*'
                     element={
