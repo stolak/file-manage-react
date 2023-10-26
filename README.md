@@ -1,10 +1,18 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### `git clone https://github.com/stolak/stolak/file-manage-react.git`
+
+### `cd file-manage-react`
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `cp .env.example .env`
+
+### `npm run start`
+
+or
 
 ### `yarn start`
 
