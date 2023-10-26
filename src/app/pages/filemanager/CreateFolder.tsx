@@ -24,32 +24,32 @@ function CreateNewFolder({ show, onHide }) {
         const newFolder = {
             name: folderName,
         };
-
+            console.log(newFolder)
         // Perform the POST request to create the folder
-        fetch('https://api.example.com/folders', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(newFolder),
-        }).then((response) => {
-            if (response.ok) {
-                // Folder created successfully
-                return response.json();
-            } else {
-                throw new Error('Failed to create folder');
-            }
-        }).then((createdFolder) => {
-            // Handle the created folder data as needed
-            console.log('Folder created:', createdFolder);
+        // fetch('https://api.example.com/folders', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(newFolder),
+        // }).then((response) => {
+        //     if (response.ok) {
+        //         // Folder created successfully
+        //         return response.json();
+        //     } else {
+        //         throw new Error('Failed to create folder');
+        //     }
+        // }).then((createdFolder) => {
+        //     // Handle the created folder data as needed
+        //     console.log('Folder created:', createdFolder);
 
-            // After creating the folder, close the modal
-            setFolderName('');
+        //     // After creating the folder, close the modal
+        //     setFolderName('');
 
-        }).catch((error) => {
-            console.error('Error creating folder:', error);
-            // Handle the error (e.g., display an error message)
-        });
+        // }).catch((error) => {
+        //     console.error('Error creating folder:', error);
+        //     // Handle the error (e.g., display an error message)
+        // });
     };
 
     return (
