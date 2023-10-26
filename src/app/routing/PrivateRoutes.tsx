@@ -35,6 +35,18 @@ const PrivateRoutes = () => {
                 <Route path='dashboard/upload-file/:id' element={<FileUpload />} />
                 {/* Lazy Modules */}
                 <Route
+                    path='file-manager/folders'
+                    element={<Folders />}
+                />
+                <Route
+                    path='file-manager/*'
+                    element={
+                        <SuspensedView>
+                            <FileManagerWrapper />
+                        </SuspensedView>
+                    }
+                />
+                <Route
                     path='crafted/pages/profile/*'
                     element={
                         <SuspensedView>
@@ -84,14 +96,7 @@ const PrivateRoutes = () => {
                 />
 
 
-                <Route
-                    path='file-manager/*'
-                    element={
-                        <SuspensedView>
-                            <FileManagerWrapper />
-                        </SuspensedView>
-                    }
-                />
+                
                 <Route
                     path='crafted/file-manager/*'
                     element={

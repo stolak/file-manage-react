@@ -63,14 +63,6 @@ export function FileUpload() {
                     <div className="card-toolbar">
                         {/* <!--begin::Toolbar--> */}
                         <div className="d-flex justify-content-end" data-kt-filemanager-table-toolbar="base">
-                            {/* <!--begin::Export--> */}
-                            {/* <button type="button" className="btn btn-flex btn-light-primary me-3" id="kt_file_manager_new_folder">
-                                <i className="ki-duotone ki-add-folder fs-2">
-                                    <span className="path1"></span>
-                                    <span className="path2"></span>
-                                </i>New Folder</button> */}
-                            {/* <!--end::Export--> */}
-                            {/* <!--begin::Add customer--> */}
                             <button type="button" className="btn btn-flex btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_upload">
                                 <i className="ki-duotone ki-folder-up fs-2">
                                     <span className="path1"></span>
@@ -104,14 +96,8 @@ export function FileUpload() {
                                 </i>
                                 <Link to="/dashboard">Folder</Link>
                                 <i className="ki-duotone ki-right fs-2 text-primary mx-1"></i>
-                                {/* <a href="#">themes</a>
-                            <i className="ki-duotone ki-right fs-2 text-primary mx-1"></i>
-                            <a href="#">html</a>
-                            <i className="ki-duotone ki-right fs-2 text-primary mx-1"></i>demo1 */}
                             </div>
                         </div>
-                        {/* <!--end::Folder path--> */}
-                        {/* <!--begin::Folder Stats--> */}
                         <div className="badge badge-lg badge-primary">
                             <span id="kt_file_manager_items_counter">82 items</span>
                         </div>

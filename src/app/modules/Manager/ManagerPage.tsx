@@ -3,8 +3,6 @@ import { Navigate, Outlet, Route, Routes } from 'react-router-dom'
 import { PageLink, PageTitle } from '../../../_metronic/layout/core'
 import { Folders } from './components/Folders'
 import { FIles } from './components/FIles'
-import { ManagerHeader } from './ManagerHeader'
-
 const accountBreadCrumbs: Array<PageLink> = [
     {
         title: 'File Manager',

@@ -87,11 +87,11 @@ export function Folders() {
                                         </button>
                                         {/* <!--end::Export--> */}
                                         {/* <!--begin::Add customer--> */}
-                                        <button type="button" className="btn btn-flex btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_upload">
+                                        {/* <button type="button" className="btn btn-flex btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_upload">
                                             <i className="ki-duotone ki-folder-up fs-2">
                                                 <span className="path1"></span>
                                                 <span className="path2"></span>
-                                            </i>Upload Files</button>
+                                            </i>Upload Files</button> */}
                                         {/* <!--end::Add customer--> */}
 
                                         <CreateNewFolder show={showModal} onHide={() => setShowModal(false)} />

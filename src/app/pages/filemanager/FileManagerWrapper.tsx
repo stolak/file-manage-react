@@ -1,19 +1,6 @@
 import { useEffect } from 'react'
 import { useIntl } from 'react-intl'
 import { PageLink, PageTitle } from '../../../_metronic/layout/core'
-// import {
-//     ListsWidget2,
-//     ListsWidget3,
-//     ListsWidget4,
-//     ListsWidget6,
-//     ListsWidget9,
-//     MixedWidget3,
-//     MixedWidget8,
-//     StatisticsWidget4,
-//     TablesWidget5,
-//     TablesWidget9,
-// } from '../../../_metronic/partials/widgets'
-
 import { KTIcon, toAbsoluteUrl } from '../../../_metronic/helpers'
 import { Link } from 'react-router-dom'
 import { Dropdown1 } from '../../../_metronic/partials'
