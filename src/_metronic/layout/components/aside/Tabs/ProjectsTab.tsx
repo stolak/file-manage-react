@@ -1,116 +1,115 @@
-/* eslint-disable react/jsx-no-target-blank */
-import { useIntl } from 'react-intl'
-import { AsideMenuItemWithSub } from './../AsideMenuItemWithSub'
-import { AsideMenuItem } from './../AsideMenuItem'
+import {Link} from 'react-router-dom'
+import {KTIcon, toAbsoluteUrl} from '../../../../helpers'
+import {Dropdown1, Search} from '../../../../partials'
 
-export function ProjectsTab() {
-    const intl = useIntl()
+const projects: ReadonlyArray<{image: string; title: string; link: string}> = [
+  {
+    image: '/media/svg/brand-logos/bebo.svg',
+    title: 'Briviba SaaS',
+    link: 'By James',
+  },
+  {
+    image: '/media/svg/brand-logos/vimeo.svg',
+    title: 'Vine Quick Reports',
+    link: 'By Andres',
+  },
+  {
+    image: '/media/svg/brand-logos/kickstarter.svg',
+    title: 'KC Account CRM',
+    link: 'By Keenthemes',
+  },
+  {
+    image: '/media/svg/brand-logos/balloon.svg',
+    title: 'Baloon SaaS',
+    link: 'By SIA Team',
+  },
+  {
+    image: '/media/svg/brand-logos/infography.svg',
+    title: 'Most Cloudy UMC',
+    link: 'By Andrei',
+  },
+  {
+    image: '/media/svg/brand-logos/disqus.svg',
+    title: 'Disqus Forum',
+    link: 'By Disqus Inc.',
+  },
+  {
+    image: '/media/svg/brand-logos/plurk.svg',
+    title: 'Proove Quick CRM',
+    link: 'By Proove Limited',
+  },
+]
 
-    return (
-        <>
-            <AsideMenuItem
-                to='/dashboard'
-                icon='color-swatch'
-                title={intl.formatMessage({ id: 'MENU.DASHBOARD' })}
-                fontIcon='bi-app-indicator'
-            />
-            <AsideMenuItem to='/builder' icon='switch' title='Layout Builder' fontIcon='bi-layers' />
-            <div className='menu-item'>
-                <div className='menu-content pt-8 pb-2'>
-                    <span className='menu-section text-muted text-uppercase fs-8 ls-1'>Crafted</span>
-                </div>
-            </div>
-            <AsideMenuItemWithSub
-                to='/crafted/pages'
-                title='Pages'
-                fontIcon='bi-archive'
-                icon='element-plus'
+const ProjectsTab = () => {
+  return (
+    <div className='m-0'>
+      {/* begin::Toolbar */}
+      <div className='d-flex mb-10'>
+        <Search />
+        {/* begin::Filter */}
+        <div className='flex-shrink-0 ms-2'>
+          {/* begin::Menu toggle */}
+          <button
+            type='button'
+            className='btn btn-icon btn-bg-light btn-active-icon-primary btn-color-gray-400'
+            data-kt-menu-trigger='click'
+            data-kt-menu-placement='bottom-end'
+          >
+            <KTIcon iconName='filter' className='fs-2' />
+          </button>
+          {/* end::Menu toggle */}
+
+          <Dropdown1 />
+        </div>
+        {/* end::Filter */}
+      </div>
+      {/* end::Toolbar */}
+
+      {/*begin::Projects*/}
+      <div className='m-0'>
+        {/*begin::Heading*/}
+        <h1 className='text-gray-800 fw-bold mb-6 mx-5'>Projects</h1>
+        {/*end::Heading*/}
+
+        {/*begin::Items*/}
+        <div className='mb-10'>
+          {projects.map((p) => (
+            <Link
+              key={p.link}
+              to='/crafted/pages/profile/projects'
+              className='custom-list d-flex align-items-center px-5 py-4'
             >
-                <AsideMenuItemWithSub to='/crafted/pages/profile' title='Profile' hasBullet={true}>
-                    <AsideMenuItem to='/crafted/pages/profile/overview' title='Overview' hasBullet={true} />
-                    <AsideMenuItem to='/crafted/pages/profile/projects' title='Projects' hasBullet={true} />
-                    <AsideMenuItem to='/crafted/pages/profile/campaigns' title='Campaigns' hasBullet={true} />
-                    <AsideMenuItem to='/crafted/pages/profile/documents' title='Documents' hasBullet={true} />
-                    <AsideMenuItem
-                        to='/crafted/pages/profile/connections'
-                        title='Connections'
-                        hasBullet={true}
-                    />
-                </AsideMenuItemWithSub>
+              {/*begin::Symbol*/}
+              <div className='symbol symbol-40px me-5'>
+                <span className='symbol-label'>
+                  <img
+                    src={toAbsoluteUrl(p.image)}
+                    alt={p.title}
+                    className='h-50 align-self-center'
+                  />
+                </span>
+              </div>
+              {/*end::Symbol*/}
 
-                <AsideMenuItemWithSub to='/crafted/pages/wizards' title='Wizards' hasBullet={true}>
-                    <AsideMenuItem
-                        to='/crafted/pages/wizards/horizontal'
-                        title='Horizontal'
-                        hasBullet={true}
-                    />
-                    <AsideMenuItem to='/crafted/pages/wizards/vertical' title='Vertical' hasBullet={true} />
-                </AsideMenuItemWithSub>
-            </AsideMenuItemWithSub>
-            <AsideMenuItemWithSub
-                to='/crafted/accounts'
-                title='Accounts'
-                icon='profile-circle'
-                fontIcon='bi-person'
-            >
-                <AsideMenuItem to='/crafted/account/overview' title='Overview' hasBullet={true} />
-                <AsideMenuItem to='/crafted/account/settings' title='Settings' hasBullet={true} />
-            </AsideMenuItemWithSub>
-            <AsideMenuItemWithSub to='/error' title='Errors' fontIcon='bi-sticky' icon='cross-circle'>
-                <AsideMenuItem to='/error/404' title='Error 404' hasBullet={true} />
-                <AsideMenuItem to='/error/500' title='Error 500' hasBullet={true} />
-            </AsideMenuItemWithSub>
-            <AsideMenuItemWithSub
-                to='/crafted/widgets'
-                title='Widgets'
-                icon='element-11'
-                fontIcon='bi-layers'
-            >
-                <AsideMenuItem to='/crafted/widgets/lists' title='Lists' hasBullet={true} />
-                <AsideMenuItem to='/crafted/widgets/statistics' title='Statistics' hasBullet={true} />
-                <AsideMenuItem to='/crafted/widgets/charts' title='Charts' hasBullet={true} />
-                <AsideMenuItem to='/crafted/widgets/mixed' title='Mixed' hasBullet={true} />
-                <AsideMenuItem to='/crafted/widgets/tables' title='Tables' hasBullet={true} />
-                <AsideMenuItem to='/crafted/widgets/feeds' title='Feeds' hasBullet={true} />
-            </AsideMenuItemWithSub>
+              {/*begin::Description*/}
+              <div className='d-flex flex-column flex-grow-1'>
+                {/*begin::Title*/}
+                <h5 className='custom-list-title fw-bold text-gray-800 mb-1'>{p.title}</h5>
+                {/*end::Title*/}
 
-
-
-            {/* ////////////////// */}
-
-            <AsideMenuItemWithSub
-                to='/file-manager'
-                title='File Manager'
-                icon='profile-circle'
-                fontIcon='bi-person'
-            >
-                <AsideMenuItem to='/file-manager/folders' title='Folders' hasBullet={true} />
-                <AsideMenuItem to='/file-manager/files' title='Files' hasBullet={true} />
-            </AsideMenuItemWithSub>
-
-
-            <div className='menu-item'>
-                <div className='menu-content pt-8 pb-2'>
-                    <span className='menu-section text-muted text-uppercase fs-8 ls-1'>Apps</span>
-                </div>
-            </div>
-            <AsideMenuItemWithSub
-                to='/apps/chat'
-                title='Chat'
-                fontIcon='bi-chat-left'
-                icon='message-text-2'
-            >
-                <AsideMenuItem to='/apps/chat/private-chat' title='Private Chat' hasBullet={true} />
-                <AsideMenuItem to='/apps/chat/group-chat' title='Group Chart' hasBullet={true} />
-                <AsideMenuItem to='/apps/chat/drawer-chat' title='Drawer Chart' hasBullet={true} />
-            </AsideMenuItemWithSub>
-            <AsideMenuItem
-                to='/apps/user-management/users'
-                icon='shield-tick'
-                title='User management'
-                fontIcon='bi-layers'
-            />
-
-        </>
-    )
+                {/*begin::Link*/}
+                <span className='text-gray-400 fw-bold'>{p.link}</span>
+                {/*end::Link*/}
+              </div>
+              {/*begin::Description*/}
+            </Link>
+          ))}
+        </div>
+        {/*end::Items*/}
+      </div>
+      {/*end::Projects*/}
+    </div>
+  )
 }
+
+export {ProjectsTab}

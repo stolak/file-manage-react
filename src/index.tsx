@@ -6,20 +6,24 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 // Apps
 import { MetronicI18nProvider } from './_metronic/i18n/Metronici18n'
-import './_metronic/assets/sass/style.react.scss'
-import './_metronic/assets/fonticon/fonticon.css'
-import './_metronic/assets/keenicons/duotone/style.css'
-import './_metronic/assets/keenicons/outline/style.css'
-import './_metronic/assets/keenicons/solid/style.css'
+// import './_metronic/assets/sass/style.react.scss'
+// import './_metronic/assets/fonticon/fonticon.css'
+// import './_metronic/assets/keenicons/duotone/style.css'
+// import './_metronic/assets/keenicons/outline/style.css'
+// import './_metronic/assets/keenicons/solid/style.css'
 /**
  * TIP: Replace this style import with rtl styles to enable rtl mode
  *
  * import './_metronic/assets/css/style.rtl.css'
  **/
-import './_metronic/assets/sass/style.scss'
-import './_metronic/assets/sass/plugins.scss'
+// import './_metronic/assets/sass/style.scss'
+// import './_metronic/assets/sass/plugins.scss'
 import { AppRoutes } from './app/routing/AppRoutes'
 import { AuthProvider, setupAxios } from './app/modules/auth'
+
+import './_metronic/new/assets/plugins/custom/datatables/datatables.bundle.css'
+import './_metronic/new/assets/plugins/global/plugins.bundle.css'
+import './_metronic/new/assets/css/style.bundle.css'
 /**
  * Creates `axios-mock-adapter` instance for provided `axios` instance, add
  * basic Metronic mocks and returns it.

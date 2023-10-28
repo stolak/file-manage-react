@@ -17,17 +17,9 @@ export function AsideMenuMain() {
             <AsideMenuItem to='/builder' icon='switch' title='Layout Builder' fontIcon='bi-layers' />
             <div className='menu-item'>
                 <div className='menu-content pt-8 pb-2'>
-                    <span className='menu-section text-muted text-uppercase fs-8 ls-1'>Side Menu</span>
+                    <span className='menu-section text-muted text-uppercase fs-8 ls-1'>Crafted</span>
                 </div>
             </div>
-            <AsideMenuItemWithSub
-                to='/file-manager'
-                title='File Manager'
-                icon='profile-circle'
-                fontIcon='bi-person'
-            >
-                <AsideMenuItem to='/file-manager/folders' title='Folders' hasBullet={true} />
-            </AsideMenuItemWithSub>
             <AsideMenuItemWithSub
                 to='/crafted/pages'
                 title='Pages'
@@ -81,11 +73,6 @@ export function AsideMenuMain() {
                 <AsideMenuItem to='/crafted/widgets/tables' title='Tables' hasBullet={true} />
                 <AsideMenuItem to='/crafted/widgets/feeds' title='Feeds' hasBullet={true} />
             </AsideMenuItemWithSub>
-
-
-           
-
-
             <div className='menu-item'>
                 <div className='menu-content pt-8 pb-2'>
                     <span className='menu-section text-muted text-uppercase fs-8 ls-1'>Apps</span>
@@ -107,7 +94,6 @@ export function AsideMenuMain() {
                 title='User management'
                 fontIcon='bi-layers'
             />
-
         </>
     )
 }
