@@ -9,6 +9,8 @@ import { RightToolbar } from '../partials/layout/RightToolbar'
 import { ScrollTop } from './components/ScrollTop'
 import { Content } from './components/Content'
 import { Folders } from './pages/Folders'
+import { Test } from './pages/Test'
+
 import { Files } from './pages/Files'
 import { PageDataProvider } from './core'
 import { ActivityDrawer, DrawerMessenger, InviteUsers, UpgradePlan } from '../partials'
@@ -61,7 +63,8 @@ const MasterLayout = () => {
 
                             <Routes>
                                 <Route path="/dashboard" element={<Folders />} />
-                                <Route path="/file" element={<Files />} /> 
+                                {/* <Route path="/file" element={<Files />} />  */}
+                                <Route path="/file" element={<Test />} /> 
                             </Routes>
                             {/* // <!--end:::Main--> */}
                         </div>
