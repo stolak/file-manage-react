@@ -13,4 +13,26 @@ mutation CreateFolder($name: String) {
 }
 `;
 
+const CREATE_FILE = gql`
+  mutation CreateFile($input: FileInput!) {
+    createFile(input: $input) {
+      id
+      name
+      type
+      path
+      folderId
+    }
+  }
+`;
+
+
+export const GET_FOLDERS = gql`
+query {
+  folders {
+    id
+    name
+  }
+}
+`;
+
 

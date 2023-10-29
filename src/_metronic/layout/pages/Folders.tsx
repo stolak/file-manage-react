@@ -1,23 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
-// import { useQuery, useMutation } from '@apollo/client';
-// import { GET_USER, UPDATE_USER } from './../graphql';
+import { useMutation,useQuery } from '@apollo/client';
+import {CREATE_FOLDER, GET_FOLDERS} from './../graphql';
 
+interface Folder {
+    id: string;
+    name: string;
+  }
+  
+  interface QueryData {
+    folders: Folder[];
+  }
 
 const Folders = () => {
-
+    const { loading, error, data } = useQuery<QueryData>(GET_FOLDERS);
+  const [folders, setFolders] = useState<Folder[]>([]);
+    const [createFolder] = useMutation(CREATE_FOLDER);
+    const getFolders = useQuery(GET_FOLDERS);
+  
     const isChecked = true;
     const [isTableRowVisible, setIsTableRowVisible] = useState(false);
 
     const [folderName, setFolderName] = useState('');
-    const [folders, setFolders] = useState([
-        { id: 1, name: "account" },
-        { id: 2, name: "apps" },
-        { id: 3, name: "widgets" },
-        { id: 4, name: "assets" },
-        { id: 5, name: "documentation" },
-        { id: 6, name: "layouts" }
-    ]);
+    // const [folders, setFolders] = useState([
+    //     { id: 1, name: "account" },
+    //     { id: 2, name: "apps" },
+    //     { id: 3, name: "widgets" },
+    //     { id: 4, name: "assets" },
+    //     { id: 5, name: "documentation" },
+    //     { id: 6, name: "layouts" }
+    // ]);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
 
@@ -32,24 +44,17 @@ const Folders = () => {
     
     const handleSubmit = async () => {
         setIsSubmitting(true);
-
-        try {
-            console.log('====================================');
-            console.log("Folder to sent to backend", folderName);
-            const newfolder = {
-                id: 20, // You can use a function to generate a unique ID
-                name: 'New File',
-              };
-            console.log('====================================');
-            setFolders([...folders, newfolder]);
-            
-            setIsSubmitting(false);
-            toggleTableRow();
-
-        } catch (error) {
-            // Handle network or other errors
-            console.error(error);
-        }
+                try {
+                    const { data } = await createFolder({
+                    variables: { name:folderName },
+                    });
+                    setIsSubmitting(false);
+                    setIsTableRowVisible(false)
+                    setFolders([...folders, data.createFolder])
+                    console.log('Folder created...:', data.createFolder.name);
+                } catch (error) {
+                    console.error('Error creating folder:', error);
+                }
     };
     const toggleTableRow = () => {
         setIsTableRowVisible(!isTableRowVisible);
@@ -57,29 +62,27 @@ const Folders = () => {
     };
 
 
-    
-    const total = folders.length
-
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [totalRecords, setTotalRecords] = useState(0);
-
-    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         // Fetch data when the component mounts
-        fetch('https://api.example.com/your-endpoint')
-            .then((response) => response.json())
-            .then((data) => {
-                setData(data);
-                setTotalRecords(data.length);
-                setLoading(false);
-            })
-            .catch((error) => {
-                console.error('Error fetching data:', error);
-                setLoading(false);
-            });
-    }, []);
+        function fetchData() {
+            const { loading, error, data } = getFolders;
+            if (loading) {
+            //   return <p>Loading...</p>;
+            }
+          
+            if (error) {
+            //   return <p>Error: {error.message}</p>;
+            }
+          
+            if (data) {
+                const { folders } = data;
+                setFolders(folders);
+              }
+        }          
+      
+          fetchData();
+    }, [data, loading, error]);
 
 
     
