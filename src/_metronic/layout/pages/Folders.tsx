@@ -442,7 +442,8 @@ const Folders = () => {
                                                                     <span className="path2"></span>
                                                                 </i>
                                                             </span>
-                                                            <Link to="/file" className="text-gray-800 text-hover-primary">{folder.name}</Link>
+                                                            
+                                                            <Link to={`/file/${folder.id}`} className="text-gray-800 text-hover-primary">{folder.name}</Link>
                                                         </div>
                                                     </td>
                                                     <td>-</td>

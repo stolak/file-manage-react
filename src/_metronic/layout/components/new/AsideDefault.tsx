@@ -119,12 +119,12 @@ const AsideDefault = () => {
                                             {/* <Link className="navbar-brand" to="/">
                                                 Inister News
                                             </Link> */}
-                                            <Link className="menu-link" to="/file">
+                                            {/* <Link className="menu-link" to="/file">
                                                 <span className="menu-bullet">
                                                     <span className="bullet bullet-dot"></span>
                                                 </span>
                                                 <span className="menu-title">Files</span>
-                                            </Link>
+                                            </Link> */}
                                             {/* <!--end:Menu link--> */}
                                         </div>
                                         {/* <!--end:Menu item--> */}

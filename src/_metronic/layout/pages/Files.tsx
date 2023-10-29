@@ -1,9 +1,10 @@
 
 import React, { useState, useEffect, useRef  } from 'react';
-import { Link} from 'react-router-dom'
+import { Link, useParams} from 'react-router-dom'
+
 
 const Files = () => {
-
+    const { folderId } = useParams();
     const isChecked = true;
     const initialState: Array<{ name: string; size: number; lastModified: string }> = [];
     const [files, setFiles] = useState(initialState);
@@ -31,7 +32,7 @@ const Files = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const fileInputRef = useRef<HTMLInputElement | null>(null); // Initialize the ref with null
     const handleRemoveFile = (index:any) => {
-
+console.log("folderid:...",folderId,)
        const arr= files.filter(file =>file.name !==index);
        setFiles(arr);
       };

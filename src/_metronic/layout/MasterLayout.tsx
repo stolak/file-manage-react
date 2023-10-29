@@ -63,8 +63,8 @@ const MasterLayout = () => {
 
                             <Routes>
                                 <Route path="/dashboard" element={<Folders />} />
-                                {/* <Route path="/file" element={<Files />} />  */}
-                                <Route path="/file" element={<Test />} /> 
+                                <Route path="/file/:folderId" element={<Files />} /> 
+                                {/* <Route path="/file/:folderid" element={<Test />} />  */}
                             </Routes>
                             {/* // <!--end:::Main--> */}
                         </div>
